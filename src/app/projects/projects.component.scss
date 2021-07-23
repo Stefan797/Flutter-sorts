@@ -1,0 +1,23 @@
+.projects-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.projects-card {
+    min-height: 200px;
+    max-width: 300px;
+    border: 2px solid rgb(186, 204, 211);
+    background-color: white;
+}
+
+mat-card-header {
+    margin-bottom: 25px;
+}
+
+mat-card-content {
+    margin-bottom: 0;
+    input {
+        min-height: 25px;
+    }
+}

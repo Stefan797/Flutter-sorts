@@ -1,0 +1,57 @@
+<div class="board-container">
+
+    <div class="draganddrop-container border-right">
+        <h2>IDEAS</h2>
+
+        <div cdkDropList #ideasList="cdkDropList" [cdkDropListData]="ideas" [cdkDropListConnectedTo]="[doneList]" class="example-list">
+            <!-- (cdkDropListDropped)="drop($event)" -->
+            <mat-card *ngFor="let item of ideas" cdkDrag>{{item}}</mat-card>
+
+        </div>
+    </div>
+
+    <div class="draganddrop-container border-right">
+        <h2>TO DO</h2>
+
+        <div cdkDropList #todoList="cdkDropList" [cdkDropListData]="todo" [cdkDropListConnectedTo]="[doneList]" class="example-list">
+            <div class="example-box" *ngFor="let item of todo" cdkDrag>{{item}}</div>
+
+        </div>
+    </div>
+
+    <div class="draganddrop-container border-right">
+        <h2>IN PROGRESS</h2>
+
+        <div cdkDropList #inprogressList="cdkDropList" [cdkDropListData]="inprogress" [cdkDropListConnectedTo]="[doneList]" class="example-list">
+            <div class="example-box" *ngFor="let item of inprogress" cdkDrag>{{item}}</div>
+
+        </div>
+    </div>
+
+
+    <div class="draganddrop-container border-right">
+        <h2>TESTING</h2>
+
+        <div cdkDropList #testingList="cdkDropList" [cdkDropListData]="testing" [cdkDropListConnectedTo]="[doneList]" class="example-list">
+            <div class="example-box" *ngFor="let item of testing" cdkDrag>{{item}}</div>
+
+        </div>
+    </div>
+
+
+
+    <div class="draganddrop-container">
+        <h2>DONE</h2>
+
+        <div cdkDropList #doneList="cdkDropList" [cdkDropListData]="done" [cdkDropListConnectedTo]="[todoList]" class="example-list">
+            <div class="example-box" *ngFor="let item of done" cdkDrag>{{item}}</div>
+        </div>
+    </div>
+
+
+    <button (click)="openDialog()" class="btn-position btn-color" mat-fab matTooltip="Add New Ticket">
+        <mat-icon>add</mat-icon>
+    </button>
+
+
+</div>

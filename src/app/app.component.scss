@@ -1,4 +1,24 @@
-a {
-    min-height: 50px;
-    background-color: black;
+mat-toolbar {
+    padding-left: 60px;
+    padding-right: 60px;
+    max-height: 100px;
+    display: flex;
+    justify-content: space-between;
+    border-top: 5px solid black;
+    background-color: whitesmoke;
+    img {
+        height: 50px;
+        width: 160px;
+        object-fit: cover;
+    }
+    a {
+        margin-left: 16px;
+        margin-right: 16px;
+        text-decoration: none;
+        color: darkred;
+    }
+}
+
+.router-container {
+    margin-top: 24px;
 }

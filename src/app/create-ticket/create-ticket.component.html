@@ -1,0 +1,15 @@
+<h1 mat-dialog-title>Add a new task</h1>
+<div mat-dialog-content>
+
+    <mat-form-field appearance="fill">
+        <mat-label>Write here your task</mat-label>
+        <!--Textarea-->
+        <textarea matInput></textarea>
+    </mat-form-field>
+</div>
+
+<div class="dialogmenu" mat-dialog-actions>
+    <button mat-button (click)="onNoClick()">No Thanks</button>
+    <button mat-button [mat-dialog-close]="" cdkFocusInitial>Ok</button>
+    <mat-icon>keyboard_voice</mat-icon>
+</div>
