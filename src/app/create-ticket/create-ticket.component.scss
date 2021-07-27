@@ -1,5 +1,43 @@
 .dialogmenu {
-    mat-icon {
-        margin-left: 24px;
+    button {
+        margin-left: -10px;
+        margin-right: 20px;
     }
 }
+
+.mr-16 {
+    margin-right: 16px;
+}
+
+.rekording-btn {
+    background-color: black;
+}
+
+.recording {
+    height: 18px;
+    background-color: rgba(255, 255, 255, 0.8);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.btn-animation-container {
+    margin-left: 10px;
+}
+
+.rekording-btn {
+    overflow: hidden;
+}
+
+// @keyframes buttonClickAnimation {
+//     0% {
+//         transform: scale(0.8);
+//     }
+//     100% {
+//         transform: scale(1);
+//     }
+// }
+// .animated-button {
+//     animation: buttonClickAnimation 0.5s;
+// }

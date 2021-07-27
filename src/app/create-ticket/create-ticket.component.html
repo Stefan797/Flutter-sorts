@@ -2,14 +2,22 @@
 <div mat-dialog-content>
 
     <mat-form-field appearance="fill">
-        <mat-label>Write here your task</mat-label>
+        <mat-label>Your task</mat-label>
         <!--Textarea-->
         <textarea matInput></textarea>
     </mat-form-field>
 </div>
 
 <div class="dialogmenu" mat-dialog-actions>
-    <button mat-button (click)="onNoClick()">No Thanks</button>
-    <button mat-button [mat-dialog-close]="" cdkFocusInitial>Ok</button>
-    <mat-icon>keyboard_voice</mat-icon>
+    <button mat-button (click)="onNoClick()">back</button>
+    <button class="mr-16" mat-button [mat-dialog-close]="" cdkFocusInitial>Ok</button>
+    <div class="btn-animation-container">
+        <button class="rekording-btn" mat-mini-fab>
+            <mat-icon>keyboard_voice</mat-icon>
+            <div *ngIf="isRecording" class="recording"></div>
+        </button>
+        <button style="margin: 10px;" (click)="start()">Start</button>
+        <button style="margin: 10px;" (click)="stop()">Stop</button>
+    </div>
+
 </div>

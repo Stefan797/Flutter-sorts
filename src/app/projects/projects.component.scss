@@ -6,9 +6,11 @@
 
 .projects-card {
     min-height: 200px;
+    min-width: 230px;
     max-width: 300px;
     border: 2px solid rgb(186, 204, 211);
     background-color: white;
+    margin: 16px;
 }
 
 mat-card-header {
