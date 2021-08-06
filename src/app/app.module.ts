@@ -18,6 +18,11 @@ import {MatIconModule} from '@angular/material/icon';
 import { CreateTicketComponent } from './create-ticket/create-ticket.component';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatDialogModule} from '@angular/material/dialog';
+import { FormsModule } from '@angular/forms';
+import { AngularFireModule } from '@angular/fire';
+import { environment } from '../environments/environment';
+import {MatMenuModule} from '@angular/material/menu';
+
 
 @NgModule({
   declarations: [
@@ -31,7 +36,9 @@ import {MatDialogModule} from '@angular/material/dialog';
   ],
   imports: [
     BrowserModule,
+    AngularFireModule.initializeApp(environment.firebase),
     AppRoutingModule,
+    FormsModule,
     BrowserAnimationsModule,
     MatToolbarModule,
     MatCardModule,
@@ -41,7 +48,8 @@ import {MatDialogModule} from '@angular/material/dialog';
     DragDropModule,
     MatIconModule,
     MatTooltipModule,
-    MatDialogModule
+    MatDialogModule,
+    MatMenuModule
     
   ],
   providers: [],

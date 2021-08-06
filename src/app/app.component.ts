@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AngularFirestore } from '@angular/fire/firestore';
 
 @Component({
   selector: 'app-root',
@@ -11,9 +12,11 @@ export class AppComponent implements OnInit {
   isLoggedIn = false;
   pageIsLogin = false;
 
-  constructor(private router: Router){
+  constructor(private router: Router, public firestore: AngularFirestore){ 
 
   }
+
+  
 
 
   ngOnInit(){

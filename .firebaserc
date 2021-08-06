@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "flutter-sorts": {
+      "hosting": {
+        "flutter-sorts": [
+          "flutter-sorts"
+        ]
+      }
+    }
+  }
+}

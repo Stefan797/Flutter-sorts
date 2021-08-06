@@ -13,8 +13,11 @@
     background-color: black;
 }
 
-.recording {
-    height: 18px;
+.recording-animation {
+    z-index: 1;
+    transform-origin: bottom;
+    animation: 5s recording infinite;
+    height: 36px;
     background-color: rgba(255, 255, 255, 0.8);
     position: absolute;
     bottom: 0;
@@ -28,6 +31,15 @@
 
 .rekording-btn {
     overflow: hidden;
+}
+
+@keyframes recording {
+    from {
+        transform: scaleY(0);
+    }
+    to {
+        transform: scaleY(1);
+    }
 }
 
 // @keyframes buttonClickAnimation {

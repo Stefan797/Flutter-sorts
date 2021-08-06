@@ -3,10 +3,6 @@
     justify-content: center;
 }
 
-.border-right {
-    border-right: 2px solid black;
-}
-
 .btn-position {
     position: absolute;
     bottom: 16px;
@@ -17,21 +13,6 @@
     background-color: darkred;
 }
 
-.draganddrop-container {
-    display: flex;
-    justify-content: center;
-    text-align: center;
-    align-items: center;
-    flex-direction: column;
-    width: 400px;
-    max-width: 100%;
-    min-height: 100vh;
-    max-height: max-content;
-    margin: 0 25px 25px 0;
-    display: inline-block;
-    vertical-align: top;
-}
-
 // .example-list {
 //     border: solid 1px #ccc;
 //     min-height: 60px;
@@ -40,6 +21,58 @@
 //     overflow: hidden;
 //     display: block;
 // }
+// .border-right {
+//     border-right: 2px solid black;
+// }
+.example-container {
+    width: 400px;
+    max-width: 100%;
+    margin: 0 25px 25px 0;
+    display: inline-block;
+    vertical-align: top;
+    h2 {
+        text-align: center;
+    }
+}
+
+.ticket-text-container {
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.ticket-timestemp-container {
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    p {
+        margin-left: 10px;
+        margin-right: 10px;
+        font-size: 12px;
+        color: #7d7b7b;
+        margin-bottom: 0px;
+    }
+}
+
+.example-list {
+    // border: solid 1px #ccc;
+    min-height: 200px;
+    // background: white;
+    // border-radius: 4px;
+    overflow: hidden;
+    display: block;
+    mat-card {
+        margin-top: 8px;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        flex-direction: column;
+        min-width: 170px;
+        min-height: 80px;
+        background-color: #05B9CF;
+    }
+}
+
 .example-box {
     padding: 20px 10px;
     border-bottom: solid 1px #ccc;
