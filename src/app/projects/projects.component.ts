@@ -20,7 +20,7 @@ export class ProjectsComponent implements OnInit {
     .collection('projects')
     .valueChanges()
     .subscribe((project) => {
-      project.push(this.projects);
+      this.projects = project;
       console.log('show infos from Project', project);
     });
   }

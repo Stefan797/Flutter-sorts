@@ -9,7 +9,7 @@ import { AngularFirestore } from '@angular/fire/firestore';
 })
 export class AppComponent implements OnInit {
   title = 'flutter-sorts';
-  isLoggedIn = true;
+  isLoggedIn = false;
  
 
   constructor(private router: Router, public firestore: AngularFirestore){ 
