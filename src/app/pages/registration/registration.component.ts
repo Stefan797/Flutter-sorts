@@ -12,4 +12,8 @@ export class RegistrationComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  newuser() {
+    console.log('haloo');
+  }
+
 }

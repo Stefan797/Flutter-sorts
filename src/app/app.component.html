@@ -1,9 +1,9 @@
-<mat-toolbar *ngIf="!pageIsLogin">
+<mat-toolbar *ngIf="isLoggedIn">
+    <!-- -->
     <img src="assets/img/Logo.png">
 
     <div>
-
-        <a [routerLink]="'/'">Projects</a>
+        <a [routerLink]="'/projects'">Projects</a>
         <a [routerLink]="'/board'">Tasks/Board</a>
         <a [routerLink]="'/administration'">Administration</a>
         <a href="">Account</a>
@@ -11,7 +11,8 @@
 
 </mat-toolbar>
 
-<div class="router-container">
+<div>
+    <!-- class="router-container" -->
     <router-outlet></router-outlet>
 
 </div>

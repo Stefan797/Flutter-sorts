@@ -2,7 +2,7 @@
 
     <div class="loginDialog">
 
-        <h1>Welcome to your Kanbanboard !</h1>
+        <h1>Create a new Account</h1>
 
         <mat-card class="my-card">
             <mat-card-content>
@@ -23,10 +23,7 @@
 
             </mat-card-content>
             <mat-card-actions>
-                <button mat-raised-button (click)="login()" color="primary">LOGIN</button>
-            </mat-card-actions>
-            <mat-card-actions>
-                <button [routerLink]="'/registration'" mat-raised-button color="primary">Create new Account</button>
+                <button (click)="newuser()" mat-raised-button color="primary">Create new Account</button>
             </mat-card-actions>
         </mat-card>
 
