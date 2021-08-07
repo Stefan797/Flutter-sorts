@@ -7,8 +7,10 @@ import { AngularFirestore } from '@angular/fire/firestore';
   styleUrls: ['./projects.component.scss']
 })
 export class ProjectsComponent implements OnInit {
-  projects = {};
-  // inputnewproject = '';
+  projects = {
+    
+  };
+  projectname = '';
     
   constructor(public firestore: AngularFirestore) { }
 
@@ -18,22 +20,17 @@ export class ProjectsComponent implements OnInit {
     .collection('projects')
     .valueChanges()
     .subscribe((project) => {
+      project.push(this.projects);
       console.log('show infos from Project', project);
     });
   }
 
-
-  // getNameofnewproject(projectName: any) {
-  //     projectName = inputnewproject.value;
-  //     return projectName;
-  // }
-
-
-  addnewproject() {
+  addnewProject() {
+    console.log('Show', this.projectname);
     this
     .firestore
     .collection('projects')
-    .add({'hallo': 'test'});
+    .add({"name":this.projectname});
   }
 
 }

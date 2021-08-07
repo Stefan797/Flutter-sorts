@@ -10,21 +10,21 @@
 
             <mat-form-field appearance="outline">
                 <mat-label>Name of the project</mat-label>
-                <input #inputnewproject matInput style="color: black;">
+                <input [(ngModel)]="projectname" matInput style="color: black;">
             </mat-form-field>
 
         </mat-card-content>
         <mat-card-actions>
-            <button (click)="addnewproject()" mat-button>CREATE</button>
+            <button (click)="addnewProject()" mat-button>CREATE</button>
             <button mat-button>SHARE</button>
         </mat-card-actions>
     </mat-card>
 
 
-    <mat-card class="projects-card">
+    <mat-card *ngFor="let project all projects" class="projects-card">
         <mat-card-header>
 
-            <mat-card-title>NAme</mat-card-title>
+            <mat-card-title>{{ project.name }}</mat-card-title>
 
         </mat-card-header>
 
