@@ -22,6 +22,10 @@ import { FormsModule } from '@angular/forms';
 import { AngularFireModule } from '@angular/fire';
 import { environment } from '../environments/environment';
 import {MatMenuModule} from '@angular/material/menu';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { AccountComponent } from './account/account.component';
+
+
 
 
 @NgModule({
@@ -32,7 +36,8 @@ import {MatMenuModule} from '@angular/material/menu';
     ProjectsComponent,
     BoardComponent,
     AdministrationComponent,
-    CreateTicketComponent
+    CreateTicketComponent,
+    AccountComponent
   ],
   imports: [
     BrowserModule,
@@ -49,7 +54,9 @@ import {MatMenuModule} from '@angular/material/menu';
     MatIconModule,
     MatTooltipModule,
     MatDialogModule,
-    MatMenuModule
+    MatMenuModule,
+    MatSnackBarModule
+    
     
   ],
   providers: [],

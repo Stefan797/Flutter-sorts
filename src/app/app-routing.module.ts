@@ -5,13 +5,16 @@ import { BoardComponent } from './board/board.component';
 import { LoginComponent } from './pages/login/login.component';
 import { ProjectsComponent } from './projects/projects.component';
 import { RegistrationComponent } from './pages/registration/registration.component';
+import { AccountComponent } from './account/account.component';
 
 const routes: Routes = [
   {path: '', component: LoginComponent},
   {path: 'projects', component: ProjectsComponent},
   {path: 'board', component: BoardComponent},
   {path: 'administration', component: AdministrationComponent},
-  {path: 'registration', component: RegistrationComponent}
+  {path: 'account', component: AccountComponent},
+  {path: 'registration', component: RegistrationComponent},
+  {path: 'login', component: LoginComponent}
 ];
 
 @NgModule({

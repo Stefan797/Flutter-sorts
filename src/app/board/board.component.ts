@@ -14,22 +14,18 @@ import { CdkDragDrop, moveItemInArray, transferArrayItem, copyArrayItem } from '
 export class BoardComponent implements OnInit {
 
   ideas = [
-   
+    // {
+    // 'text': 'Idee 1',
+    // 'background-color:': '#12abcd'
+    // } 
   ];
 
   todo = [
-    'Get to work',
-    'Pick up groceries',
-    'Go home',
-    'Fall asleep'
+   
   ];
 
   done = [
-    'Get up',
-    'Brush teeth',
-    'Take a shower',
-    'Check e-mail',
-    'Walk dog'
+   
   ];
 
   review = [
@@ -43,8 +39,14 @@ export class BoardComponent implements OnInit {
 
   constructor(public dialog: MatDialog) { }
 
-  ngOnInit(): void {
+  
 
+  ngOnInit(): void {
+    // let projectID = this.getProjectId(); // 12903jd01j80d21zu129n20hns10
+    // this.firestore.get('/tasks', where('project', '==', projectID))
+    // .subscribe(() => {
+  
+    // });
   }
 
   openDialog() {
@@ -80,7 +82,7 @@ export class BoardComponent implements OnInit {
   //   console.log('ready ?');
   //   switch (numberofpriority) {
   //     case '1':
- //    arr[pos]['color'] =  '#8cb6ed';
+ //    arr[pos]['background-color'] =  '#8cb6ed';
   //         return '#8cb6ed';
   //     case '2':
   //         return '#b5c4b9';

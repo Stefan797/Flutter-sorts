@@ -36,9 +36,21 @@
 }
 
 .ticket-text-container {
+    text-overflow: ellipsis;
+    /* Required for text-overflow to do anything */
+    white-space: nowrap;
+    overflow: hidden;
+    min-width: 100px;
+    min-height: 80px;
     text-align: center;
     margin-top: 10px;
     margin-bottom: 10px;
+    p {}
+    // textarea {
+    //     min-width: 100px;
+    //     min-height: 80px; 
+    //     background-color: #05B9CF; 
+    // }
 }
 
 .ticket-timestemp-container {

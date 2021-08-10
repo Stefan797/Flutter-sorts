@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AngularFireAuth } from '@angular/fire/auth';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-registration',
@@ -10,27 +12,27 @@ export class RegistrationComponent implements OnInit {
   passwordinput = '';
   firebase: any;
 
-  email;
-  password;
+  // email;
+  // password;
 
-  constructor() { }
+  constructor(private router: Router, public auth: AngularFireAuth) { }
 
   ngOnInit(): void {
   }
 
-  auth() {
-    if (this.emailinput == this.email) {
-      return;
-    }
+  // auth() {
+  //   if (this.emailinput == this.email) {
+  //     return;
+  //   }
 
-    if (this.passwordinput == this.password) {
-      return;
-    }
-  }
+  //   if (this.passwordinput == this.password) {
+  //     return;
+  //   }
+  // }
 
   newuser() {
-    console.log(this.email, '&', this.password);
-    this.firebase.auth().createUserWithEmailAndPassword(this.email, this.password)
+    console.log(this.emailinput, '&', this.passwordinput);
+    this.auth.createUserWithEmailAndPassword(this.emailinput, this.passwordinput)
     .then((userCredential) => {
     // Signed in 
     var user = userCredential.user;

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AngularFirestore } from '@angular/fire/firestore';
+import { AngularFireAuth } from '@angular/fire/auth';
 
 @Component({
   selector: 'app-root',
@@ -9,16 +10,23 @@ import { AngularFirestore } from '@angular/fire/firestore';
 })
 export class AppComponent implements OnInit {
   title = 'flutter-sorts';
-  isLoggedIn = false;
+  isLoggedIn: boolean;
+  user: any;
  
 
-  constructor(private router: Router, public firestore: AngularFirestore){ 
+  constructor(private router: Router, public firestore: AngularFirestore, public auth: AngularFireAuth){ 
 
   }
 
   ngOnInit(){
-    if(this.isLoggedIn) {
-      this.router.navigateByUrl('/projects');
-    } 
+    this.auth.authState.subscribe( user => {
+      this.user = user;
+      if(user) {
+        this.router.navigateByUrl('/projects');
+      } else {
+        this.router.navigateByUrl('/');
+      } 
+
+    });
   }
 }

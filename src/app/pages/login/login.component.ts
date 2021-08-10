@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AngularFireAuth } from '@angular/fire/auth';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-login',
@@ -8,16 +10,16 @@ import { Component, OnInit } from '@angular/core';
 export class LoginComponent implements OnInit {
   email = '';
   password = '';
-  firebase: any;
   isLoggedIn = false;
+  firebase: any;
 
-  constructor() { }
+  constructor(public auth: AngularFireAuth, private _snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
   }
 
   login() {
-    this.firebase.auth().signInWithEmailAndPassword(this.email, this.password)
+    this.auth.signInWithEmailAndPassword(this.email, this.password)
     .then((userCredential) => {
       this.isLoggedIn = true; 
       // Signed in
@@ -27,14 +29,8 @@ export class LoginComponent implements OnInit {
     .catch((error) => {
       var errorCode = error.code;
       var errorMessage = error.message;
+      this._snackBar.open(error.message, "ok");
     });
   }
-
-
-  // // firebase.auth().signOut().then(() => {
-  // // Sign-out successful.
-  //   }).catch((error) => {
-  // // An error happened.
-  //   });
 
 }

@@ -1,4 +1,4 @@
-<mat-toolbar *ngIf="isLoggedIn">
+<mat-toolbar *ngIf="user">
     <!-- -->
     <img src="assets/img/Logo.png">
 
@@ -6,7 +6,7 @@
         <a [routerLink]="'/projects'">Projects</a>
         <a [routerLink]="'/board'">Tasks/Board</a>
         <a [routerLink]="'/administration'">Administration</a>
-        <a href="">Account</a>
+        <a [routerLink]="'/account'">Account</a>
     </div>
 
 </mat-toolbar>
