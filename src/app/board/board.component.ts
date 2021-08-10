@@ -72,6 +72,10 @@ export class BoardComponent implements OnInit {
     }
   }
 
+  writtenedittask() {
+    console.log('Task is edit!');
+  }
+
   
 
   deleteTicket() {
@@ -82,7 +86,7 @@ export class BoardComponent implements OnInit {
   //   console.log('ready ?');
   //   switch (numberofpriority) {
   //     case '1':
- //    arr[pos]['background-color'] =  '#8cb6ed';
+  //   arr[pos]['background-color'] =  '#8cb6ed';
   //         return '#8cb6ed';
   //     case '2':
   //         return '#b5c4b9';
