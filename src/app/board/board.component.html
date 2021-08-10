@@ -7,6 +7,7 @@
             <mat-card class="example-box" *ngFor="let item of ideas" cdkDrag>
                 <div class="ticket-text-container">
                     <p>{{item}}</p>
+                    <!-- {{[item['text']]}} -->
                 </div>
 
                 <button mat-icon-button [matMenuTriggerFor]="taskMenu">

@@ -9,7 +9,7 @@
 </div>
 
 <div class="dialogmenu" mat-dialog-actions>
-    <button mat-button (click)="onNoClick()">back</button>
+    <button mat-button (click)="closedialog()">back</button>
     <button class="mr-16" mat-button [mat-dialog-close]="newTicketText" cdkFocusInitial>Ok</button>
     <div class="btn-animation-container">
         <button mat-mini-fab class="rekording-btn" (mousedown)="start()" (mouseup)="stop()">

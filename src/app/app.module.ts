@@ -24,6 +24,7 @@ import { environment } from '../environments/environment';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { AccountComponent } from './account/account.component';
+import { MatDialogRef } from '@angular/material/dialog';
 
 
 
@@ -55,7 +56,8 @@ import { AccountComponent } from './account/account.component';
     MatTooltipModule,
     MatDialogModule,
     MatMenuModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatDialogRef
     
     
   ],
