@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
-import { BoardComponent } from '../board/board.component';
+// import { BoardComponent } from '../board/board.component';
 
 declare var webkitSpeechRecognition: any;
 
@@ -18,7 +18,7 @@ export class CreateTicketComponent implements OnInit {
   tempWords;
   newTicketText  = '';
 
-  constructor(public dialogRef: MatDialogRef<BoardComponent>) { }
+  constructor() { }
 
   init() {
     this.recognition.interimResults = true; 
@@ -59,7 +59,7 @@ export class CreateTicketComponent implements OnInit {
   }
     
   closedialog() {
-    this.dialogRef.close();
+    // this.dialogRef.close();
   }
 
 

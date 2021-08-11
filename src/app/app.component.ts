@@ -13,6 +13,7 @@ export class AppComponent implements OnInit {
   isLoggedIn: boolean;
   user: any;
  
+ 
 
   constructor(private router: Router, public firestore: AngularFirestore, public auth: AngularFireAuth){ 
 
@@ -22,6 +23,7 @@ export class AppComponent implements OnInit {
     this.auth.authState.subscribe( user => {
       this.user = user;
       if(user) {
+        console.log(user.uid);
         this.router.navigateByUrl('/projects');
       } else {
         this.router.navigateByUrl('/');

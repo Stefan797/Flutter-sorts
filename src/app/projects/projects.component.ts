@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
 export class ProjectsComponent implements OnInit {
   projects: any;
   projectname = '';
+  // userId: string;
     
   constructor(private router: Router, public firestore: AngularFirestore) { }
 
