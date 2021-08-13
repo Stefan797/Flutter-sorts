@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+
 
 
 @Component({
@@ -11,14 +12,18 @@ import { Router } from '@angular/router';
 export class ProjectsComponent implements OnInit {
   projects: any;
   projectname = '';
-  // userId: string;
+  userId: string;
     
-  constructor(private router: Router, public firestore: AngularFirestore) { }
+  constructor(private router: Router, private route: ActivatedRoute, public firestore: AngularFirestore) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
+
+    this.userId = this.route.snapshot.paramMap.get('id');
+    console.log(this.userId);
+
     this
     .firestore
-    .collection('projects')
+    .collection('projects', ref => ref. where("author", "==", this.userId ))
     .valueChanges({idField: 'customIdName'})
     .subscribe((project) => {
       this.projects = project;
@@ -31,7 +36,7 @@ export class ProjectsComponent implements OnInit {
     this
     .firestore
     .collection('projects')
-    .add({name: this.projectname});
+    .add({name: this.projectname, author: this.userId});
   }
 
   selectproject() {

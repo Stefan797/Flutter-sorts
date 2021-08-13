@@ -57,6 +57,7 @@ import { AccountComponent } from './account/account.component';
     MatDialogModule,
     MatMenuModule,
     MatSnackBarModule,
+    MatDialogModule
     
     
   ],

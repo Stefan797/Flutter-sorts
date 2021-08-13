@@ -21,10 +21,11 @@ export class AppComponent implements OnInit {
 
   ngOnInit(){
     this.auth.authState.subscribe( user => {
-      this.user = user;
+     
       if(user) {
+        this.user = user;
         console.log(user.uid);
-        this.router.navigateByUrl('/projects');
+        this.router.navigateByUrl('/projects/'+user.uid);
       } else {
         this.router.navigateByUrl('/');
       } 

@@ -4,6 +4,9 @@ import { CreateTicketComponent } from '../create-ticket/create-ticket.component'
 // import {CdkDragDrop, moveItemInArray, transferArrayItem} from  '@angular/cdk/drag-drop' ;
 import { MatDialog } from '@angular/material/dialog';
 import { CdkDragDrop, moveItemInArray, transferArrayItem, copyArrayItem } from '@angular/cdk/drag-drop';
+import { ActivatedRoute, Router } from '@angular/router';
+
+
 // import { type } from 'os';
 
 @Component({
@@ -33,20 +36,25 @@ export class BoardComponent implements OnInit {
     'Brush teeth'
   ];
 
+  projectID: string;
+  firestore: any;
 
-  // adjustwidth = true;
-  // ticketText: any;
-
-  constructor(public dialog: MatDialog) { }
+  constructor(private router: Router, private route: ActivatedRoute, public dialog: MatDialog) { }
 
   
 
   ngOnInit(): void {
+    this.projectID = this.route.snapshot.paramMap.get('id');
+    console.log(this.projectID);
     // let projectID = this.getProjectId(); // 12903jd01j80d21zu129n20hns10
-    // this.firestore.get('/tasks', where('project', '==', projectID))
+    // this
+    // .firestore
+    // .collection('task', ref => ref. where("project", "==", this.projectID ))
     // .subscribe(() => {
-  
+    //    console.log(this.projectID);
     // });
+    // this.firestore.get('/tasks', where('project', '==', projectID))
+    
   }
 
   openDialog() {
@@ -57,11 +65,15 @@ export class BoardComponent implements OnInit {
       // console.log('The dialog was closed');
       // this.ticketText = result;
       // console.log(result);
-      this.ideas.push(result);
+      if (result) {
+        this.ideas.push(result);
+      }
+      
     });
   }
 
   drop(event: CdkDragDrop<string[]>) {
+    
     if (event.previousContainer === event.container) {
       moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
     } else {
@@ -70,6 +82,8 @@ export class BoardComponent implements OnInit {
                         event.previousIndex,
                         event.currentIndex);
     }
+
+    console.log('Show json', event);
   }
 
   writtenedittask() {
