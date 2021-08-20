@@ -4,13 +4,23 @@
 }
 
 .btn-position {
-    position: absolute;
+    position: fixed;
     bottom: 16px;
     right: 16px;
 }
 
 .btn-color {
     background-color: darkred;
+}
+
+.scroll-container {
+    height: 40px;
+    background-color: #5c4b4c;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 12px;
+    padding-right: 12px;
 }
 
 // .example-list {
@@ -119,4 +129,18 @@
 
 .example-list.cdk-drop-list-dragging .example-box:not(.cdk-drag-placeholder) {
     transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+// ------------------------------------------------------------------------------
+@media (max-width: 600px) {
+    // .example-container {
+    //     min-width: 300px;
+    //     max-width: 100%;
+    //     margin: 0 25px 25px 0;
+    //     display: inline-block;
+    //     vertical-align: top;
+    //     h2 {
+    //         text-align: center;
+    //     }
+    // }
 }

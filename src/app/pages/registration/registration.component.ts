@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 export class RegistrationComponent implements OnInit {
   emailinput = '';
   passwordinput = '';
-  firebase: any;
+  // firebase: any;
 
   // email;
   // password;

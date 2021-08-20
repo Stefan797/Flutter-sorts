@@ -11,7 +11,7 @@ export class LoginComponent implements OnInit {
   email = '';
   password = '';
   isLoggedIn = false;
-  firebase: any;
+  // firebase: any;
 
   constructor(public auth: AngularFireAuth, private _snackBar: MatSnackBar) { }
 

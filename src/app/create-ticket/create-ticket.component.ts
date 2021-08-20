@@ -17,6 +17,7 @@ export class CreateTicketComponent implements OnInit {
   isStoppedSpeechRecog = false;
   tempWords;
   newTicketText  = '';
+  smartphonemenu: boolean; 
 
   constructor() { }
 

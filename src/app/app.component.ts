@@ -12,6 +12,7 @@ export class AppComponent implements OnInit {
   title = 'flutter-sorts';
   isLoggedIn: boolean;
   user: any;
+  smartphonemenu: boolean; 
  
  
 
@@ -20,6 +21,11 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit(){
+
+    if (window.screen.width <= 600) { // 768px portrait
+      this.smartphonemenu = true;
+    }
+
     this.auth.authState.subscribe( user => {
      
       if(user) {
@@ -31,5 +37,7 @@ export class AppComponent implements OnInit {
       } 
 
     });
+
+    
   }
 }

@@ -22,6 +22,28 @@ mat-toolbar {
     }
 }
 
-// .router-container {
-//     margin-top: 24px;
-// }
+.linkssmartphone-positioning {
+    padding: 8px;
+    display: flex;
+    flex-direction: column;
+    a {
+        margin-top: 4px;
+        text-decoration: none;
+        color: black;
+    }
+}
+
+@media (max-width: 600px) {
+    mat-toolbar {
+        img {
+            position: absolute;
+            left: 8px;
+            top: 1px;
+        }
+    }
+    .pin-right-upper-corner {
+        position: absolute;
+        right: 20px;
+        top: 6px;
+    }
+}

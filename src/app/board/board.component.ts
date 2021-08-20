@@ -5,6 +5,7 @@ import { CreateTicketComponent } from '../create-ticket/create-ticket.component'
 import { MatDialog } from '@angular/material/dialog';
 import { CdkDragDrop, moveItemInArray, transferArrayItem, copyArrayItem } from '@angular/cdk/drag-drop';
 import { ActivatedRoute, Router } from '@angular/router';
+import { AngularFirestore } from '@angular/fire/firestore';
 
 
 // import { type } from 'os';
@@ -16,44 +17,42 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class BoardComponent implements OnInit {
 
-  ideas = [
-    // {
-    // 'text': 'Idee 1',
-    // 'background-color:': '#12abcd'
-    // } 
-  ];
-
-  todo = [
-   
-  ];
-
-  done = [
-   
-  ];
-
-  review = [
-    'Get up',
-    'Brush teeth'
-  ];
-
+  ideas = [];
+  todo = [];
+  done = [];
+  review = [];
   projectID: string;
-  firestore: any;
+  // firestore: any;
+  allProjectTasks: any[];
+  smartphonemenu: boolean; 
 
-  constructor(private router: Router, private route: ActivatedRoute, public dialog: MatDialog) { }
+  constructor(public firestore: AngularFirestore, private router: Router, private route: ActivatedRoute, public dialog: MatDialog) { }
 
   
 
   ngOnInit(): void {
+    if (window.screen.width <= 600) { // 768px portrait
+      this.smartphonemenu = true;
+    }
     this.projectID = this.route.snapshot.paramMap.get('id');
-    console.log(this.projectID);
+    // console.log(this.projectID);
     // let projectID = this.getProjectId(); // 12903jd01j80d21zu129n20hns10
-    // this
-    // .firestore
-    // .collection('task', ref => ref. where("project", "==", this.projectID ))
-    // .subscribe(() => {
-    //    console.log(this.projectID);
-    // });
+    this
+    .firestore
+    .collection('task', ref => ref. where("projectID", "==", this.projectID ))
+    .valueChanges({ idField: 'customIdName'})
+    .subscribe((result) => {
+      //  console.log(this.projectID);
+       this.allProjectTasks = result;
+       this.ideas = this.allProjectTasks.filter ( task => task.category == "ideas");
+       this.todo = this.allProjectTasks.filter ( task => task.category == "todo");
+       this.done = this.allProjectTasks.filter ( task => task.category == "done");
+       this.review = this.allProjectTasks.filter ( task => task.category == "review");
+       console.log(this.allProjectTasks);
+    });
     // this.firestore.get('/tasks', where('project', '==', projectID))
+
+    
     
   }
 
@@ -66,13 +65,17 @@ export class BoardComponent implements OnInit {
       // this.ticketText = result;
       // console.log(result);
       if (result) {
-        this.ideas.push(result);
+        let newTask = {text: result, projectID: this.projectID, category: "ideas"};
+        // this.ideas.push(newTask);
+        this.firestore.collection('task').add(newTask);
+
+        // result = '';
       }
       
     });
   }
 
-  drop(event: CdkDragDrop<string[]>) {
+  drop(event: CdkDragDrop<string[]>, category) {
     
     if (event.previousContainer === event.container) {
       moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
@@ -81,13 +84,34 @@ export class BoardComponent implements OnInit {
                         event.container.data,
                         event.previousIndex,
                         event.currentIndex);
+        console.log('Verschiebe Element zu', category);
+        
+        let currentCard = event.container.data[event.currentIndex];
+        currentCard['category'] = category;
+
+        let id = currentCard['customIdName'];
+
+
+        this.firestore.collection('task')
+        .doc(id)
+        .set(currentCard)
+        .then( (msg) => {
+          console.log('success', msg);
+        }).catch( (err) => {
+          console.log('error', err);
+        });
+        console.log('Element das wir updaten wollen:', currentCard);
+        // this.todo = event.container.data[event.currentIndex];
+        
+
     }
 
-    console.log('Show json', event);
+    // console.log('Show json', event);
   }
 
   writtenedittask() {
-    console.log('Task is edit!');
+    console.log('Ticket is delete !');
+
   }
 
   

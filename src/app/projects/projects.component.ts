@@ -21,6 +21,7 @@ export class ProjectsComponent implements OnInit {
     this.userId = this.route.snapshot.paramMap.get('id');
     console.log(this.userId);
 
+
     this
     .firestore
     .collection('projects', ref => ref. where("author", "==", this.userId ))
@@ -39,13 +40,19 @@ export class ProjectsComponent implements OnInit {
     .add({name: this.projectname, author: this.userId});
   }
 
-  selectproject() {
-    console.log('project', this.projectname);
-    this.router.navigateByUrl('/board');
+  selectproject(project) {
+    console.log('project', project);
+    this.router.navigateByUrl('/board/' + project.customIdName);
     // this
     // .firestore
     // .collection('projects')
     // .get()
   }
+
+  deleteProject(id) {
+    this.firestore.collection('projects').doc(id).delete();
+  }
+
+
 
 }
