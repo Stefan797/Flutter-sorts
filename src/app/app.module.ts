@@ -26,6 +26,7 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { AccountComponent } from './account/account.component';
 import { EditTicketComponent } from './edit-ticket/edit-ticket.component';
 // import { MatDialogRef } from '@angular/material/dialog';
+import {MatTableModule} from '@angular/material/table';
 
 
 
@@ -59,7 +60,8 @@ import { EditTicketComponent } from './edit-ticket/edit-ticket.component';
     MatDialogModule,
     MatMenuModule,
     MatSnackBarModule,
-    MatDialogModule
+    MatDialogModule,
+    MatTableModule
     
     
   ],

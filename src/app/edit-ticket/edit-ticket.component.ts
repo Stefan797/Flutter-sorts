@@ -8,18 +8,20 @@ import { AngularFirestore } from '@angular/fire/firestore';
 })
 export class EditTicketComponent implements OnInit {
 
-  task = {};
+  task: any;
 
   constructor(public firestore: AngularFirestore) { }
 
   ngOnInit(): void {
-
+    // console.log(this.task);
   }
 
   deletetask() {
-    // this
-    // .firestore
-    // .collection('task')
+    this
+    .firestore
+    .collection('task')
+    .doc(this.task.customIdName)
+    .delete();
   }
 
   // editwrittentask() {

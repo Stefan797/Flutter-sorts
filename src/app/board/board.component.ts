@@ -41,7 +41,7 @@ export class BoardComponent implements OnInit {
        this.todo = this.allProjectTasks.filter ( task => task.category == "todo");
        this.done = this.allProjectTasks.filter ( task => task.category == "done");
        this.review = this.allProjectTasks.filter ( task => task.category == "review");
-       console.log(this.allProjectTasks);
+      //  console.log(this.allProjectTasks);
     });
 
     setInterval(() => {
@@ -61,8 +61,7 @@ export class BoardComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       
       if (task) {
-        let newTask = {text: result, projectID: this.projectID, category: "ideas"};
-        this.firestore.collection('task').add(newTask);
+        // this.firestore.collection('task').add(newTask);
       }
     });
   }
@@ -87,7 +86,7 @@ export class BoardComponent implements OnInit {
                         event.container.data,
                         event.previousIndex,
                         event.currentIndex);
-        console.log('Verschiebe Element zu', category);
+        // console.log('Verschiebe Element zu', category);
         
         let currentCard = event.container.data[event.currentIndex];
         currentCard['category'] = category;
@@ -96,11 +95,11 @@ export class BoardComponent implements OnInit {
         .doc(id)
         .set(currentCard)
         .then( (msg) => {
-          console.log('success', msg);
+          // console.log('success', msg);
         }).catch( (err) => {
           console.log('error', err);
         });
-        console.log('Element das wir updaten wollen:', currentCard);
+        // console.log('Element das wir updaten wollen:', currentCard);
     }
   }
 

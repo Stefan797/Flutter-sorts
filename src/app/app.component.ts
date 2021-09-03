@@ -48,7 +48,7 @@ export class AppComponent implements OnInit {
      
       if(user) {
         this.user = user;
-        console.log(user.uid);
+        // console.log(user.uid);
         // if url is /login
       //  this.router.navigateByUrl('/projects/'+user.uid);
       } else {
