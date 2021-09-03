@@ -1,0 +1,19 @@
+<div class="headline">
+    <h1>Edit your Task</h1>
+</div>
+<div class="tickettext">
+    <textarea [(ngModel)]="task['text']"></textarea>
+
+</div>
+
+<div class="buttons-container">
+    <button mat-button mat-dialog-close>Archiv</button>
+    <button (click)="deletetask()" mat-button mat-dialog-close>Delete</button>
+    <button mat-button mat-dialog-close>back</button>
+    <!-- <button mat-button (click)="editwrittentask()">save</button> -->
+    <div class="changeprioritylow"></div>
+    <!-- (click)="changeColor('#e9e9e9')" -->
+    <div class="changeprioritysoon"></div>
+    <div class="changepriorityhigh"></div>
+    <div class="changepriorityveryurgent"></div>
+</div>

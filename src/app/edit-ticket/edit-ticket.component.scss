@@ -1,0 +1,68 @@
+.headline {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.tickettext {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    textarea {
+        min-width: 350px;
+        min-height: 150px;
+        border: 1px dashed black;
+        outline: none;
+    }
+}
+
+.buttons-container {
+    margin-top: 24px;
+    min-width: 350px;
+    width: 250px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 8px;
+    button {
+        height: 35px;
+        width: 80px;
+    }
+    .changeprioritylow {
+        width: 35px;
+        height: 25px;
+        border-radius: 2px;
+        background-color: #5fad5e;
+        cursor: pointer;
+        margin-right: 8px;
+        margin-left: 8px;
+    }
+    .changeprioritysoon {
+        width: 35px;
+        height: 25px;
+        border-radius: 2px;
+        background-color: #76b09c;
+        cursor: pointer;
+        margin-right: 8px;
+        margin-left: 8px;
+    }
+    .changepriorityhigh {
+        width: 35px;
+        height: 25px;
+        border-radius: 2px;
+        background-color: #f78205;
+        cursor: pointer;
+        margin-right: 8px;
+        margin-left: 8px;
+    }
+    .changepriorityveryurgent {
+        width: 35px;
+        height: 25px;
+        border-radius: 2px;
+        background-color: #d60404;
+        cursor: pointer;
+        margin-right: 8px;
+        margin-left: 8px;
+    }
+}

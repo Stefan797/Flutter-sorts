@@ -24,6 +24,7 @@ import { environment } from '../environments/environment';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { AccountComponent } from './account/account.component';
+import { EditTicketComponent } from './edit-ticket/edit-ticket.component';
 // import { MatDialogRef } from '@angular/material/dialog';
 
 
@@ -38,7 +39,8 @@ import { AccountComponent } from './account/account.component';
     BoardComponent,
     AdministrationComponent,
     CreateTicketComponent,
-    AccountComponent
+    AccountComponent,
+    EditTicketComponent
   ],
   imports: [
     BrowserModule,

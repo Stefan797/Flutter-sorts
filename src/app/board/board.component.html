@@ -1,60 +1,31 @@
 <div class="scroll-container" *ngIf="smartphonemenu">
 
-    <img src="assets/img/arrow-left.png">
-    <img src="assets/img/arrow-right.png">
+    <img (click)="contentmoveleft()" src="assets/img/arrow-left.png">
+    <img (click)="contentmoveright()" src="assets/img/arrow-right.png">
 
 </div>
 
-<div class="board-container section2 mt24">
-
-
-
+<div class="board-container section2 mt24" id="scrolling_div">
     <div class="example-container">
         <h2>Ideas</h2>
-
         <div cdkDropList #ideasList="cdkDropList" [cdkDropListData]="ideas" [cdkDropListConnectedTo]="[todoList, doneList, reviewList]" class="example-list" (cdkDropListDropped)="drop($event, 'ideas')">
-            <mat-card class="example-box" *ngFor="let item of ideas" cdkDrag>
-                <!-- <div class="ticket-text-container"> -->
-                <p>{{[item['text']]}}</p>
-                <!-- {{[item['text']]}} -->
-                <!-- </div>
+            <mat-card (click)="opentask(item)" class="example-box" *ngFor="let item of ideas" cdkDrag>
 
-                <button mat-icon-button [matMenuTriggerFor]="taskMenu">
-                    <mat-icon>view_headline</mat-icon>
-                </button>
-
-                <mat-icon (click)="writtenedittask()">edit</mat-icon>
+                {{[item['text']]}}
 
 
-                <div class="ticket-timestemp-container">
-                    <p>28.04.21</p>
-                    <p>-</p>
-                    <p>19:30 Uhr</p>
-                </div> -->
 
             </mat-card>
-
-
-            <!-- <mat-menu #taskMenu="matMenu">
-                <div class="priority-select-menu-infos">
-                    <p>Specify priority</p>
-                     <p (click)="changepriority(1)">low</p>
-                    <p (click)="changepriority(2)">soon</p>
-                    <p (click)="changepriority(3)">high</p>
-                    <p (click)="changepriority(4, 0)">very urgent</p> 
-                </div>
-            </mat-menu> -->
         </div>
     </div>
-
-
 
     <div class="example-container">
         <h2>To do</h2>
 
         <div cdkDropList #todoList="cdkDropList" [cdkDropListData]="todo" [cdkDropListConnectedTo]="[ideasList, doneList, reviewList]" class="example-list" (cdkDropListDropped)="drop($event, 'todo')">
-            <mat-card class="example-box" *ngFor="let item of todo" cdkDrag>
-                <p>{{[item['text']]}}</p>
+            <mat-card (click)="opentask(item)" class="example-box" *ngFor="let item of todo" cdkDrag>
+                {{[item['text']]}}
+
             </mat-card>
 
         </div>
@@ -64,8 +35,9 @@
         <h2>Review</h2>
 
         <div cdkDropList #reviewList="cdkDropList" [cdkDropListData]="review" [cdkDropListConnectedTo]="[ideasList, todoList, doneList]" class="example-list" (cdkDropListDropped)="drop($event, 'review')">
-            <mat-card class="example-box" *ngFor="let item of review" cdkDrag>
-                <p>{{[item['text']]}}</p>
+            <mat-card (click)="opentask(item)" class="example-box" *ngFor="let item of review" cdkDrag>
+                {{[item['text']]}}
+
             </mat-card>
 
         </div>
@@ -75,8 +47,9 @@
         <h2>Done</h2>
 
         <div cdkDropList #doneList="cdkDropList" [cdkDropListData]="done" [cdkDropListConnectedTo]="[ideasList, todoList, reviewList]" class="example-list" (cdkDropListDropped)="drop($event, 'done')">
-            <mat-card class="example-box" *ngFor="let item of done" cdkDrag>
-                <p>{{[item['text']]}}</p>
+            <mat-card (click)="opentask(item)" class="example-box" *ngFor="let item of done" cdkDrag>
+                {{[item['text']]}}
+
             </mat-card>
 
         </div>

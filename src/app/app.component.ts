@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnChanges, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { AngularFireAuth } from '@angular/fire/auth';
@@ -13,6 +13,7 @@ export class AppComponent implements OnInit {
   isLoggedIn: boolean;
   user: any;
   smartphonemenu: boolean; 
+  activeBoard = localStorage.getItem('activeBoard');
  
  
 
@@ -20,7 +21,24 @@ export class AppComponent implements OnInit {
 
   }
 
+
+
   ngOnInit(){
+
+    // setInterval( () => {
+    //   this.activeBoard = localStorage.getItem('activeBoard');
+    // }, 5000);
+
+    // window.onstorage = () => {
+    //   console.log('Storage changed');
+    //   this.activeBoard = localStorage.getItem('activeBoard');
+    // };
+
+    // window.addEventListener("localDataStorage", () => {
+    //   console.log('Storage changed');
+    //   this.activeBoard = localStorage.getItem('activeBoard');
+
+    // }, false);
 
     if (window.screen.width <= 600) { // 768px portrait
       this.smartphonemenu = true;
@@ -31,7 +49,8 @@ export class AppComponent implements OnInit {
       if(user) {
         this.user = user;
         console.log(user.uid);
-        this.router.navigateByUrl('/projects/'+user.uid);
+        // if url is /login
+      //  this.router.navigateByUrl('/projects/'+user.uid);
       } else {
         this.router.navigateByUrl('/');
       } 
