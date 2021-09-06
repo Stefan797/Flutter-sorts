@@ -5,11 +5,12 @@
 
 </div>
 
-<div class="board-container section2 mt24" id="scrolling_div">
+<div class="board-container section2" id="scrolling_div">
     <div class="example-container">
         <h2>Ideas</h2>
         <div cdkDropList #ideasList="cdkDropList" [cdkDropListData]="ideas" [cdkDropListConnectedTo]="[todoList, doneList, reviewList]" class="example-list" (cdkDropListDropped)="drop($event, 'ideas')">
             <mat-card (click)="opentask(item)" class="example-box" *ngFor="let item of ideas" cdkDrag>
+                <!-- [(ngstyle)]="background-color: {{task['color']}}" -->
 
                 {{[item['text']]}}
 

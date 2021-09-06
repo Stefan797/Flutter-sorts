@@ -28,12 +28,18 @@ export class EditTicketComponent implements OnInit {
   //   console.log('geändert!!!');
   // }
 
-  // changeColor(hexCode){
-  //   // Update Ticket in firebase
-  // }
+  changeColor(hexCode: any){
+    console.log(hexCode);
+    this
+    .firestore
+    .collection('task')
+    .doc(this.task.color)
+    .delete(); // update()
+    
+  }
 
   // changepriority(numberofpriority: , arr, pos) {
-  //   console.log('ready ?');
+   
   //   switch (numberofpriority) {
   //     case '1':
   //   arr[pos]['background-color'] =  '#8cb6ed';

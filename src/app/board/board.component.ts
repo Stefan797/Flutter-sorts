@@ -71,7 +71,7 @@ export class BoardComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       
       if (result) {
-        let newTask = {text: result, projectID: this.projectID, category: "ideas"};
+        let newTask = {text: result, projectID: this.projectID, category: "ideas", color: "background: repeating-linear-gradient( 45deg, #e9e9e9, #ffffff 140px);"};
         this.firestore.collection('task').add(newTask);
       }
     });
