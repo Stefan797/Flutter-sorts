@@ -66,3 +66,40 @@
         margin-left: 8px;
     }
 }
+
+@media (max-width: 600px) {
+    .buttons-container {
+        min-width: 200px;
+        width: 250px;
+        padding: 2px;
+        button {
+            height: 35px;
+            width: 40px;
+            margin-left: -20px;
+        }
+        .changeprioritylow {
+            margin-left: -10px;
+            margin-right: 2px;
+        }
+        .changeprioritysoon {
+            margin-right: 2px;
+            margin-left: 2px;
+        }
+        .changepriorityhigh {
+            margin-right: 2px;
+            margin-left: 2px; 
+        }
+        .changepriorityveryurgent {
+            margin-right: 2px;
+            margin-left: 2px; 
+        }
+    }
+
+    .tickettext {
+        textarea {
+            min-width: 250px;
+            min-height: 100px;
+           
+        }
+    }
+}

@@ -41,20 +41,16 @@
 .example-list {
     min-width: 250px;
     min-height: 200px;
-    // overflow: hidden;
-    // display: block;
     mat-card {
         margin-top: 8px;
         display: flex;
         justify-content: center;
         align-items: flex-start;
         flex-direction: column;
-        word-break: break-all;
+        word-break: break-word;
         min-width: 160px;
         min-height: 80px;
         max-height: 130px;
-        // background-color: #05B9CF;
-        // background: repeating-linear-gradient( 45deg, #ffff 60px, #f0463a);
         // background: repeating-linear-gradient( 45deg, #e9e9e9, #ffffff 140px);
         h3 {
             position: absolute;
@@ -123,8 +119,35 @@
     background-color: darkred;
 }
 
-// ------------------------------------------------------------------------------
 @media (max-width: 600px) {
+    .board-container {
+        display: flex;
+        justify-content: flex-start;
+        overflow: scroll;
+    }
+
+    .section2 {
+        padding-left: none;
+        padding-right: none;
+    } 
+
+    .example-container {
+        min-width: 150px;
+        
+    }
+
+    .example-list {
+        min-width: 150px;
+        min-height: 200px;
+    }
+
+    .padding-left-right-smartphone {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+}
+
+@media (max-width: 640px) {
     .board-container {
         display: flex;
         justify-content: flex-start;

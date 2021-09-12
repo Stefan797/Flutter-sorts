@@ -19,7 +19,7 @@
     <div *ngIf="!smartphonemenu">
         <a routerLink="/projects/{{user.uid}}">Projects</a>
         <a [routerLink]="'/board/' + activeBoard">Tasks/Board</a>
-        <a [routerLink]="'/administration'">Administration</a>
+        <a routerLink="/administration/{{user.uid}}">Administration</a>
         <a [routerLink]="'/account'">Account</a>
     </div>
 

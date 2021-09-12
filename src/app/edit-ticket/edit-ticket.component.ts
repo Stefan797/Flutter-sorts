@@ -16,6 +16,15 @@ export class EditTicketComponent implements OnInit {
     // console.log(this.task);
   }
 
+  movetoArchiv(archiv: string) {
+    this.task['category'] = archiv;
+    this
+    .firestore
+    .collection('task')
+    .doc(this.task.customIdName)
+    .update(this.task);
+  }
+
   deletetask() {
     this
     .firestore
@@ -24,10 +33,6 @@ export class EditTicketComponent implements OnInit {
     .delete();
   }
 
-  // editwrittentask() {
-  //   console.log('geändert!!!');
-  // }
-
   changeColor(hexCode: any){
     console.log(hexCode);
     this.task['color'] = hexCode;
@@ -35,23 +40,6 @@ export class EditTicketComponent implements OnInit {
     .firestore
     .collection('task')
     .doc(this.task['customIdName'])
-    .set(this.task['color']);
-    
+    .set(this.task);
   }
-
-  // changepriority(numberofpriority: , arr, pos) {
-   
-  //   switch (numberofpriority) {
-  //     case '1':
-  //   arr[pos]['background-color'] =  '#8cb6ed';
-  //         return '#8cb6ed';
-  //     case '2':
-  //         return '#b5c4b9';
-  //     case '3':
-  //         return '#e67e85';
-  //     case '4':
-  //         return '#e8d9d8';
-  //   }
-  // }
-
 }

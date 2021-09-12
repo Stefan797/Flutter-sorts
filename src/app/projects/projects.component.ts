@@ -38,6 +38,7 @@ export class ProjectsComponent implements OnInit {
     .firestore
     .collection('projects')
     .add({name: this.projectname, author: this.userId});
+    this.projectname = '';
   }
 
   selectproject(project) {

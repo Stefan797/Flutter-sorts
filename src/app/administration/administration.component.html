@@ -6,14 +6,15 @@
 
         <mat-form-field class="example-form-field">
             <mat-label>search your Project</mat-label>
-            <input autocomplete="off" matInput type="text" id="search" onkeydown="filterNames()">
-             <!-- <button matSuffix mat-icon-button (click)="value=''">
-            </button> -->
-            <ul id="list">
+            <input autocomplete="off" [(ngModel)]="search" matInput type="text" (change)="filterNames()"> 
 
+          
+            <ul id="list">
             </ul>
         </mat-form-field>
     </div>
+
+    <!--  -->
 
     <!-- <div class="example-container mat-elevation-z8">
         <div class="example-loading-shade"

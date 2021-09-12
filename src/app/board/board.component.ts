@@ -22,10 +22,11 @@ export class BoardComponent implements OnInit {
   smartphonemenu: boolean; 
   leftKeyPressed: boolean;
   rightKeyPressed: boolean;
-  rightPos = 40; // wenn man mit hand scrollt sich die Variable andert sonst zu große mit dem Plus immer dazu Z 53
-  leftPos = 40; // macht sonst zu große sprund von ganz links nach ganz rechts
+  rightPos = 30; 
+  leftPos = 30; 
+  isDragged = false;
 
-  // soll in beide richtungen gleichmaßig funktionieren
+ 
 
   constructor(public firestore: AngularFirestore, private router: Router, private route: ActivatedRoute, public dialog: MatDialog) { }
 
@@ -47,28 +48,6 @@ export class BoardComponent implements OnInit {
       //  console.log(this.allProjectTasks);
     });
 
-    setInterval(() => {
-      if(this.rightKeyPressed) {
-        console.log('variable works');
-        let htmlContainer: any =  document.getElementById('scrolling_div');
-        htmlContainer.scrollLeft += this.rightPos; // Muss spiegel verkehrt sein !!!
-        this.rightPos += 20;
-        this.rightKeyPressed = false;
-      
-      }
-    }, 1000);
-
-    setInterval(() => {
-      if(this.leftKeyPressed) { // Wieso geht nicht ? nach links zurück
-        console.log('variable works');
-        let htmlContainer: any =  document.getElementById('scrolling_div');
-        htmlContainer.scrollRight += this.rightPos;
-        this.rightPos += 20;
-        this.leftKeyPressed = false; 
-      
-      }
-    }, 1000);
-
     localStorage.setItem('activeBoard', this.projectID);
   }
 
@@ -88,8 +67,9 @@ export class BoardComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       
       if (result) {
-        let newTask = {text: result, projectID: this.projectID, category: "ideas", color: "background: repeating-linear-gradient( 45deg, #e9e9e9, #ffffff 140px);"};
+        let newTask = {text: result, projectID: this.projectID, category: "ideas", color: ""};
         this.firestore.collection('task').add(newTask);
+        console.log(newTask);
       }
     });
   }
@@ -121,11 +101,13 @@ export class BoardComponent implements OnInit {
   }
 
   contentmoveleft() {
-    this.leftKeyPressed = true;
+    let htmlContainer: any =  document.getElementById('scrolling_div');
+    htmlContainer.scrollLeft -= this.leftPos;
   }
 
   contentmoveright() {
-    this.rightKeyPressed = true;
+    let htmlContainer: any =  document.getElementById('scrolling_div');
+    htmlContainer.scrollLeft += this.rightPos; 
   }
 }
 

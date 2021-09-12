@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AngularFirestore } from '@angular/fire/firestore';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-administration',
@@ -6,40 +8,27 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./administration.component.scss']
 })
 export class AdministrationComponent implements OnInit {
-
-  projectnames = ['Stefan'];
-
-
-  constructor() { }
+  projects: any;
+  userId: any;
+  search: any;
+  
+  constructor(private router: Router, private route: ActivatedRoute, public firestore: AngularFirestore) { }
 
   ngOnInit(): void {
+    this
+    .firestore.
+    collection('projects', ref => ref.where('author', '==', this.userId))
+    .valueChanges({idField: 'customIdName'})
+    .subscribe( collection => {
+      this.projects = collection;
+    } );
+    this.userId = this.route.snapshot.paramMap.get('id');
+    // console.log(this.userId);
   }
 
   filterNames() {
-    // let search = document.getElementById('search').value;
-    // search = search.toLowerCase();
-    // console.log(search);
-
+    let filterd = this.projects.filter( projects => projects['name'].toLowerCase().includes(this.search) );
     let list = document.getElementById('list');
-    list.innerHTML = '';
-
-    // for (let index = 0; index < this.projectnames.length; index++) {
-    //     let name = this.projectnames[index];
-    //     if (name.toLowerCase().includes(search)) {
-    //         list.innerHTML += `<li>${name}</li>`;
-    //     }
-    // }
+    list.innerHTML = filterd;
   }
-
-  showprojectNames() {
-    let list = document.getElementById('list');
-
-    list.innerHTML = '';
-
-    // for (let index = 0; index < this.projectnames.length; index++) {
-    //     let name = this.projectnames[index];
-    //     list.innerHTML += `<li>${name}</li>`;
-    // }
-  }
-
 }
