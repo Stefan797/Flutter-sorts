@@ -25,38 +25,18 @@ export class AppComponent implements OnInit {
 
   ngOnInit(){
 
-    // setInterval( () => {
-    //   this.activeBoard = localStorage.getItem('activeBoard');
-    // }, 5000);
-
-    // window.onstorage = () => {
-    //   console.log('Storage changed');
-    //   this.activeBoard = localStorage.getItem('activeBoard');
-    // };
-
-    // window.addEventListener("localDataStorage", () => {
-    //   console.log('Storage changed');
-    //   this.activeBoard = localStorage.getItem('activeBoard');
-
-    // }, false);
-
-    if (window.screen.width <= 600) { // 768px portrait
+    if (window.screen.width <= 600) { 
       this.smartphonemenu = true;
     }
 
     this.auth.authState.subscribe( user => {
-     
       if(user) {
         this.user = user;
-        // console.log(user.uid);
-        // if url is /login
-      //  this.router.navigateByUrl('/projects/'+user.uid);
+        
+        
       } else {
         this.router.navigateByUrl('/');
       } 
-
     });
-
-    
   }
 }
