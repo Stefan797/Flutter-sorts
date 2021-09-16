@@ -25,6 +25,13 @@ export class BoardComponent implements OnInit {
   rightPos = 30; 
   leftPos = 30; 
   isDragged = false;
+  createdat = new Date().getTime();
+
+    resultsLength = 0;
+  isLoadingResults = true;
+  isRateLimitReached = false;
+
+  //new Date(crea)
 
  
 
@@ -34,6 +41,7 @@ export class BoardComponent implements OnInit {
     if (window.screen.width <= 600) {
       this.smartphonemenu = true;
     }
+  
     this.projectID = this.route.snapshot.paramMap.get('id');
     this
     .firestore
@@ -67,12 +75,14 @@ export class BoardComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       
       if (result) {
-        let newTask = {text: result, projectID: this.projectID, category: "ideas", color: ""};
+        let newTask = {text: result, projectID: this.projectID, category: "ideas", color: "", creationdate: this.createdat}; // , creationdate: this.createdat
         this.firestore.collection('task').add(newTask);
         console.log(newTask);
       }
     });
   }
+
+  
 
   drop(event: CdkDragDrop<string[]>, category) {
     

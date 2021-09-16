@@ -53,3 +53,42 @@ mat-card-actions {
     justify-content: center;
     align-items: center;
 }
+
+@media(max-width: 600px) {
+    .login-container {
+        height: 90vh; 
+    }
+    .loginDialog {
+        height: 75vh;
+        width: 82vw;
+        h1 {
+          text-align: center;
+        }
+    }
+
+    mat-card-content {
+       padding: 20px;
+       max-width: 150px;
+    }
+}
+
+@media (orientation: landscape) {
+    .loginDialog {
+        top: 70px;
+        height: 76vh;
+        width: 72vw;
+        h1 {
+          display: none;
+        }
+    }
+
+    mat-card-content {
+        padding: 20px;
+        max-width: 300px;
+        max-height: 50px;
+    }
+
+    mat-card-actions {
+        margin-bottom: 0;
+    }
+}

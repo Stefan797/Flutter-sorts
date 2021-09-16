@@ -29,3 +29,10 @@ body {
 .mt24 {
     padding-top: 24px;
 }
+
+@media (max-width: 600px) {
+    .section2 {
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+}
