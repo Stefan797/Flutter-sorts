@@ -12,6 +12,7 @@ export class AdministrationComponent implements OnInit {
   userId: any;
   search: any;
   tasks: any;
+  nextcode: any;
   displayedColumns: string[] = ['Created', 'State', 'number', 'text'];
   data = [
     {
@@ -21,6 +22,7 @@ export class AdministrationComponent implements OnInit {
       title: 'Task 1'
     }
   ]
+  date = new Date();
   
   constructor(private router: Router, private route: ActivatedRoute, public firestore: AngularFirestore) { }
 
@@ -39,25 +41,46 @@ export class AdministrationComponent implements OnInit {
     this.setTasksFromProjectId('VOeNDTUFlCT6vVwjXdgp');
   }
 
-  setTasksFromProjectId(porjectId){
+  setTasksFromProjectId(projectId){
     this
     .firestore.
-    collection('task', ref => ref.where('projectID', '==', porjectId))
+    collection('task', ref => ref.where('projectID', '==', projectId))
     .valueChanges({idField: 'customIdName'})
     .subscribe( collection => {
       this.tasks = collection;
+       
       // console.log(this.tasks);
     } );
+
+    this.date = this.tasks['creationdate'];
+    
+    this.date.getMonth();
+    this.nextcode = this.tasks['color'];
+    this.checkPriorityName(this.nextcode);
   }
 
-  // checkpriortyName(hexcode: string) {
-  //   if (#5fad5e) {
-  //     return 'low';
-  //   } else if (#5fad5e) {
-  //     return low;
-  //   }
+  checkPriorityName(nextCode: any) {
+    if(nextCode == '#5FAD5E') {
+      return 'low';
+    } else
+    if(nextCode == '#76b09c') {
+      return 'soon';
+    } else
+    if(nextCode == '##d60404') {
+      return 'high';
+    } else
+    if(nextCode == '#5FAD5E') {
+      return 'veryurgent';
+    } else 
+      return 'x';
+    
+  }
 
-  // }
+  // <div class="changeprioritylow" (click)="changeColor('#5fad5e')"></div>
+  //   <!-- (click)="changeColor('#e9e9e9')" -->
+  //   <div class="changeprioritysoon" (click)="changeColor('#76b09c')"></div>
+  //   <div class="changepriorityhigh" (click)="changeColor('#f78205')"></div>
+  //   <div class="changepriorityveryurgent" (click)="changeColor('#d60404')"></div>
 
   filterNames() {
     let filterd = this.projects.filter( projects => projects['name'].toLowerCase().includes(this.search) );
