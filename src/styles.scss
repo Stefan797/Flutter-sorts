@@ -36,3 +36,10 @@ body {
         padding-right: 30px;
     }
 }
+
+@media (min-width: 600px) and (max-width: 740px) and (orientation: landscape) {
+    .section2 {
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+}

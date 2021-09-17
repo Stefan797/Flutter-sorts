@@ -27,6 +27,7 @@ import { AccountComponent } from './account/account.component';
 import { EditTicketComponent } from './edit-ticket/edit-ticket.component';
 // import { MatDialogRef } from '@angular/material/dialog';
 import {MatTableModule} from '@angular/material/table';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
 
 
 
@@ -61,9 +62,8 @@ import {MatTableModule} from '@angular/material/table';
     MatMenuModule,
     MatSnackBarModule,
     MatDialogModule,
-    MatTableModule
-    
-    
+    MatTableModule,
+    MatAutocompleteModule
   ],
   providers: [],
   bootstrap: [AppComponent]

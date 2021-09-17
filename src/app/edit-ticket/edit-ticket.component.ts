@@ -24,7 +24,7 @@ export class EditTicketComponent implements OnInit {
     .doc(this.task.customIdName)
     .update(this.task);
   }
-
+ 
   deletetask() {
     this
     .firestore

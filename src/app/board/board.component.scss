@@ -138,16 +138,50 @@
         margin: 0px 0px 0px 0;
     }
 
-    .example-list {
-        min-width: 150px;
-        min-height: 200px;
-    }
+    // .example-list {
+    //     min-width: 150px;
+    //     min-height: 200px;
+    // }
 
     .padding-left-right-smartphone {
         padding-left: 20px;
         padding-right: 20px;
     }
 }
+
+@media (min-width: 600px) and (max-width: 740px) and (orientation: landscape) {
+    .board-container {
+        display: flex;
+        justify-content: flex-start;
+        overflow: scroll;
+    }
+
+    .example-list {
+        min-height: 40px;
+        max-width: 154px;
+        mat-card {
+            max-width: 154px; 
+        }
+    }
+
+    .example-container {
+        min-width: 200px;
+        margin: 0px 0px 0px 0;
+    }
+
+    // .example-list {
+    //     min-width: 150px;
+    //     min-height: 200px;
+    // }
+}
+
+// @media (orientation: landscape) {
+//     .board-container {
+//         display: flex;
+//         justify-content: flex-start;
+//         overflow: scroll;
+//     }
+// }
 
 // @media (max-width: 640px) {
 //     .board-container {
