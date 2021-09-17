@@ -12,7 +12,7 @@ export class AdministrationComponent implements OnInit {
   userId: any;
   search: any;
   tasks: any;
-  nextcode: any;
+  prioritycode: any;
   displayedColumns: string[] = ['Created', 'State', 'number', 'text'];
   data = [
     {
@@ -33,7 +33,7 @@ export class AdministrationComponent implements OnInit {
     .valueChanges({idField: 'customIdName'})
     .subscribe( collection => {
       this.projects = collection;
-      console.log(this.projects);
+      // console.log(this.projects);
     } );
     this.userId = this.route.snapshot.paramMap.get('id');
     // console.log(this.userId);
@@ -43,20 +43,17 @@ export class AdministrationComponent implements OnInit {
 
   setTasksFromProjectId(projectId){
     this
-    .firestore.
-    collection('task', ref => ref.where('projectID', '==', projectId))
+    .firestore
+    .collection('task', ref => ref.where('projectID', '==', projectId))
     .valueChanges({idField: 'customIdName'})
     .subscribe( collection => {
       this.tasks = collection;
-       
-      // console.log(this.tasks);
     } );
 
     this.date = this.tasks['creationdate'];
-    
-    this.date.getMonth();
-    this.nextcode = this.tasks['color'];
-    this.checkPriorityName(this.nextcode);
+    this.date.getDate();
+    this.prioritycode = this.tasks['color'];
+    this.checkPriorityName(this.prioritycode);
   }
 
   checkPriorityName(nextCode: any) {
@@ -66,7 +63,7 @@ export class AdministrationComponent implements OnInit {
     if(nextCode == '#76b09c') {
       return 'soon';
     } else
-    if(nextCode == '##d60404') {
+    if(nextCode == '#d60404') {
       return 'high';
     } else
     if(nextCode == '#5FAD5E') {
