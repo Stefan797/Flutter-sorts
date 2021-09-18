@@ -72,7 +72,7 @@ mat-card-actions {
     }
 }
 
-@media (orientation: landscape) {
+@media (min-width: 600px) and (max-width: 740px) and (orientation: landscape) {
     .loginDialog {
         top: 70px;
         height: 76vh;

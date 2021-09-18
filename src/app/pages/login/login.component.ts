@@ -11,18 +11,19 @@ import { Router } from '@angular/router';
 export class LoginComponent implements OnInit {
   email = '';
   password = '';
-  isLoggedIn = false;
+  // isLoggedIn = false;
   // firebase: any;
 
   constructor(private router: Router, public auth: AngularFireAuth, private _snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
+    
   }
 
   login() {
     this.auth.signInWithEmailAndPassword(this.email, this.password)
     .then((userCredential) => {
-      this.isLoggedIn = true; 
+      // this.isLoggedIn = true; 
       // Signed in
       var user = userCredential.user;
 

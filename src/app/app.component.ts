@@ -32,8 +32,7 @@ export class AppComponent implements OnInit {
     this.auth.authState.subscribe( user => {
       if(user) {
         this.user = user;
-        
-        
+        this.router.navigateByUrl('/projects/' + user.uid);
       } else {
         this.router.navigateByUrl('/');
       } 

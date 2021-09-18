@@ -27,6 +27,7 @@
     min-height: 200px;
     max-height: 400px;
     overflow: auto;
+    overflow-x: hidden;
   }
   
   table {
@@ -60,6 +61,16 @@
   .mat-column-created {
     max-width: 124px;
   }
+
+  th.mat-header-cell:first-of-type {
+    min-width: 100px;
+  }
+
+  th.mat-header-cell {
+    min-width: 100px;
+  }
+
+  
 
 
 // ---------------------------------------------------------------
