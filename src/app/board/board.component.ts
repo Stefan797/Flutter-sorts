@@ -119,6 +119,22 @@ export class BoardComponent implements OnInit {
     let htmlContainer: any =  document.getElementById('scrolling_div');
     htmlContainer.scrollLeft += this.rightPos; 
   }
+
+  checktaskcolor(taskcolor: string) {
+    if (taskcolor == '#5fad5e') {
+      return 'background-color: #5fad5e';
+    } else
+    if (taskcolor== '#76b09c') {
+      return 'background-color: #76b09c';
+    } else
+    if (taskcolor == '#f78205') {
+      return 'background-color: #f78205';
+    } else
+    if (taskcolor == '#d60404') {
+      return 'background-color: #d60404';
+    } else
+      return 'background: repeating-linear-gradient( 45deg, #e9e9e9, #ffffff 140px)';
+  }
 }
 
 

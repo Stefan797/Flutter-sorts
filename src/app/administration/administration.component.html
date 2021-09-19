@@ -1,111 +1,51 @@
 <div class="administrationpage-container section2 mt24">
 
   <div class="archiv-container">
-
-      <h2>Archiv View</h2> 
-
+    <h2>Archiv View</h2> 
       <mat-form-field class="example-form-field">
           <mat-label>search your Project</mat-label>
           <input id="myInput" matInput type="text" [matAutocomplete]="search"> 
           <mat-autocomplete #search="matAutocomplete">
-            <mat-option *ngFor="let name of names">
-              <mat-form-field>
-                
-                {{ name }}
-              </mat-form-field>
-              
+            <mat-option>
+              <mat-form-field></mat-form-field>
             </mat-option>
           </mat-autocomplete>
-          
-        
-            <!-- <p id="list"></p> -->
-          
       </mat-form-field>
   </div>
 
-
-
-
   <div class="mt24">
+    <div class="example-container mat-elevation-z8">
+      <div class="example-table-container">
+        <table mat-table [dataSource]="tasks" class="example-table"
+          matSort matSortActive="created" matSortDisableClear matSortDirection="desc">
 
-      <div class="example-container mat-elevation-z8">
-       <!-- <div class="example-loading-shade"
-         *ngIf="isLoadingResults || isRateLimitReached">
-         <mat-spinner *ngIf="isLoadingResults"></mat-spinner>
-         <div class="example-rate-limit-reached" *ngIf="isRateLimitReached">
-           GitHub's API rate limit has been reached. It will be reset in one minute.
-         </div>
-        </div> -->
-  
-     <div class="example-table-container">
-  
-       <table mat-table [dataSource]="tasks" class="example-table"
-             matSort matSortActive="created" matSortDisableClear matSortDirection="desc">
-
-        <ng-container matColumnDef="Created">
+          <ng-container matColumnDef="Created">
             <th mat-header-cell *matHeaderCellDef>Created</th>
             <td mat-cell *matCellDef="let row">{{ row.creationdate | date:'dd.MM.yyyy' }}</td>
-        </ng-container>     
-      
-  
-        
-        <ng-container matColumnDef="State">
-          <th mat-header-cell *matHeaderCellDef>State</th>
-          <td mat-cell *matCellDef="let row">{{ checkPriorityName(row.color) }}</td>
-        </ng-container>
+          </ng-container>  
 
-        <ng-container matColumnDef="number">
-          <th mat-header-cell *matHeaderCellDef>#</th>
-          <td mat-cell *matCellDef="let row">{{row.number}}</td>
-        </ng-container>
-  
-       
-      
+          <ng-container matColumnDef="State">
+            <th mat-header-cell *matHeaderCellDef>State</th>
+            <td mat-cell *matCellDef="let row">{{ checkPriorityName(row.color) }}</td>
+          </ng-container>
 
-        <ng-container matColumnDef="text">
-          <th mat-header-cell *matHeaderCellDef>Text</th>
-          <td mat-cell *matCellDef="let row">{{row.text}}</td>
-        </ng-container>
+          <ng-container matColumnDef="number">
+           <th mat-header-cell *matHeaderCellDef>#</th>
+           <td mat-cell *matCellDef="let row">{{row.number}}</td>
+          </ng-container>
+
+          <ng-container matColumnDef="text">
+            <th mat-header-cell *matHeaderCellDef>Text</th>
+            <td mat-cell *matCellDef="let row">{{row.text}}</td>
+          </ng-container>
   
-        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-      </table>
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+      </div>
     </div>
-  
-    <!-- <mat-paginator [length]="resultsLength" [pageSize]="30" aria-label="Select page of GitHub search results"></mat-paginator> -->
   </div>
 
-</div>
-
-
-  <!-- <figure class="css-chart" style="--widget-size: 200px;">
-    <ul class="line-chart">
-      <li style="--x: 40px; --y: 83.3333px;">
-        <div class="data-point" data-value="25"></div>
-        <div class="line-segment" style="--hypotenuse: 123.33333333333333; --angle:-71.07535558394876;"></div>
-      </li>
-      <li style="--x: 80px; --y: 200px;">
-        <div class="data-point" data-value="60"></div>
-        <div class="line-segment" style="--hypotenuse: 64.03124237432849; --angle:51.34019174590991;"></div>
-      </li>
-      <li style="--x: 120px; --y: 150px;">
-        <div class="data-point" data-value="45"></div>
-        <div class="line-segment" style="--hypotenuse: 43.333333333333336; --angle:-22.61986494804045;"></div>
-      </li>
-      <li style="--x: 160px; --y: 166.667px;">
-        <div class="data-point" data-value="50"></div>
-        <div class="line-segment" style="--hypotenuse: 52.068331172711055; --angle:39.805571092265225;"></div>
-      </li>
-      <li style="--x: 200px; --y: 133.333px;">
-        <div class="data-point" data-value="40"></div>
-        <div class="line-segment" style="--hypotenuse: 0; --angle:0;"></div>
-      </li>    
-    </ul>
-  </figure>
-  
-  <figure class="css-chart" style="--widget-size: 200px;">
-    <ul id="line-chart" class="line-chart">
-    </ul>
-  </figure>  -->
+  <canvas #myChart width="400" height="400"></canvas>
 
 </div>
