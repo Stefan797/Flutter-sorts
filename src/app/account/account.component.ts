@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
+import { Router } from '@angular/router';
+// import { getAuth, deleteUser } from "firebase/auth";
 
 @Component({
   selector: 'app-account',
@@ -7,8 +9,9 @@ import { AngularFireAuth } from '@angular/fire/auth';
   styleUrls: ['./account.component.scss']
 })
 export class AccountComponent implements OnInit {
+  user: any;
 
-  constructor(public auth: AngularFireAuth) { }
+  constructor(private router: Router, public auth: AngularFireAuth) { }
 
   ngOnInit(): void {
   }
@@ -20,6 +23,19 @@ export class AccountComponent implements OnInit {
     }).catch((error) => {
       // An error happened.
     });
+  }
+
+  deleteuserAccount() {
+    console.log('Account ist gelöscht !');
+
+    // deleteUser(user).then(() => {
+    //   // User deleted.
+    // }).catch((error) => {
+    //   // An error ocurred
+    //   // ...
+    // });
+
+    // this.router.navigateByUrl('/');
   }
 
 }

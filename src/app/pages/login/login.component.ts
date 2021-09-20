@@ -11,13 +11,10 @@ import { Router } from '@angular/router';
 export class LoginComponent implements OnInit {
   email = '';
   password = '';
-  // isLoggedIn = false;
-  // firebase: any;
 
   constructor(private router: Router, public auth: AngularFireAuth, private _snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
-    
   }
 
   login() {
@@ -28,9 +25,7 @@ export class LoginComponent implements OnInit {
       var user = userCredential.user;
 
       this.router.navigateByUrl('/projects/' + user.uid);
-
-      
-    // ...
+      // ...
     })
     .catch((error) => {
       var errorCode = error.code;

@@ -28,6 +28,7 @@ import { EditTicketComponent } from './edit-ticket/edit-ticket.component';
 // import { MatDialogRef } from '@angular/material/dialog';
 import {MatTableModule} from '@angular/material/table';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import {  ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -45,6 +46,7 @@ import {MatAutocompleteModule} from '@angular/material/autocomplete';
     EditTicketComponent
   ],
   imports: [
+    ReactiveFormsModule,
     BrowserModule,
     AngularFireModule.initializeApp(environment.firebase),
     AppRoutingModule,
