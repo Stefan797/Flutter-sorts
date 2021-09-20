@@ -2,6 +2,7 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { FormControl } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+// import { ResultFunc } from 'rxjs/internal/observable/generate';
 
 @Component({
   selector: 'app-administration',
@@ -67,7 +68,7 @@ export class AdministrationComponent implements OnInit {
     
     this.myControl.valueChanges.subscribe( (result) => {
       console.log(result);   
-      this.projects.filter( projects => projects['name'].toLowerCase().includes(result) );
+      this.projects.filter( projects => projects['name'].toLowerCase().includes(this.search) );
     });
 
 

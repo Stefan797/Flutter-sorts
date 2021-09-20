@@ -28,12 +28,12 @@ export class ProjectsComponent implements OnInit {
     .valueChanges({idField: 'customIdName'})
     .subscribe((project) => {
       this.projects = project;
-      console.log('show infos from Project', project);
+      // console.log('show infos from Project', project);
     });
   }
 
   addnewProject() {
-    console.log('Show', this.projectname);
+    // console.log('Show', this.projectname);
     this
     .firestore
     .collection('projects')
@@ -42,7 +42,7 @@ export class ProjectsComponent implements OnInit {
   }
 
   selectproject(project) {
-    console.log('project', project);
+    // console.log('project', project);
     this.router.navigateByUrl('/board/' + project.customIdName);
     // this
     // .firestore

@@ -34,7 +34,7 @@ export class EditTicketComponent implements OnInit {
   }
 
   changeColor(hexCode: any){
-    console.log(hexCode);
+    // console.log(hexCode);
     this.task['color'] = hexCode;
     this
     .firestore

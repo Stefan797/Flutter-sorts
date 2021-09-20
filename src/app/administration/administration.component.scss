@@ -10,108 +10,72 @@
     }
 } 
 
-
 .example-form-field {
     width: 200px;
 }
 
-// -------------------------------------------------------------------------------------------
-
 /* Structure */
 .example-container {
     position: relative;
-  }
+}
   
-  .example-table-container {
+.example-table-container {
     position: relative;
     min-height: 200px;
     max-height: 400px;
     overflow: auto;
     overflow-x: hidden;
-  }
+}
   
-  table {
-    width: 100%;
-  }
+table {
+  width: 100%;
+}
   
-  .example-loading-shade {
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 56px;
-    right: 0;
-    background: rgba(0, 0, 0, 0.15);
-    z-index: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
+.example-loading-shade {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 56px;
+  right: 0;
+  background: rgba(0, 0, 0, 0.15);
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
   
-  .example-rate-limit-reached {
-    max-width: 360px;
-    text-align: center;
-  }
+.example-rate-limit-reached {
+  max-width: 360px;
+  text-align: center;
+}
   
   /* Column Widths */
-  .mat-column-number,
-  .mat-column-state {
-    max-width: 64px;
-  }
+.mat-column-number,
+.mat-column-state {
+  max-width: 64px;
+}
   
-  .mat-column-created {
-    max-width: 124px;
+.mat-column-created {
+  max-width: 124px;
+}
+
+th.mat-header-cell:first-of-type {
+  min-width: 100px;
+}
+
+th.mat-header-cell {
+  min-width: 100px;
+}
+
+@media (max-width: 600px) {
+  .example-table-container {
+    overflow: auto;
+    overflow-x: auto;
   }
 
-  th.mat-header-cell:first-of-type {
-    min-width: 100px;
+  canvas {
+    display: none;
   }
-
-  th.mat-header-cell {
-    min-width: 100px;
-  }
-
-  
+}
 
 
-// ---------------------------------------------------------------
-
-
-// .css-chart {
-//   border-bottom: 1px solid;
-//   border-left: 1px solid;
-//   display: inline-block;
-//   height: var(--widget-size);
-//   margin: 5em 15em 1em 5em;
-//   padding: 0;
-//   position: relative;
-//   width: var(--widget-size);
-// }
-
-// .line-chart {
-//   list-style: none;
-//   margin: 0;
-//   padding: 0;
-// }
-
-// .data-point {
-//   background-color: white;
-//   border: 2px solid lightblue;
-//   border-radius: 50%;
-//   bottom: calc(var(--y) - 8px);
-//   height: 12px;
-//   left: calc(var(--x) - 8px);
-//   position: absolute;
-//   width: 12px;
-//   z-index: 1;
-// }
-
-// .line-segment {
-//   background-color: blue;
-//   bottom: var(--y);
-//   height: 3px;
-//   left: var(--x);
-//   position: absolute;
-//   transform: rotate(calc(var(--angle) * 1deg));
-//   transform-origin: left bottom;
-//   width: calc(var(--hypotenuse) * 1px);
-// }

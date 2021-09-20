@@ -30,6 +30,7 @@ export class BoardComponent implements OnInit {
     resultsLength = 0;
   isLoadingResults = true;
   isRateLimitReached = false;
+  
 
   //new Date(crea)
 
@@ -39,6 +40,9 @@ export class BoardComponent implements OnInit {
 
   ngOnInit(): void {
     if (window.screen.width <= 600) {
+      this.smartphonemenu = true;
+    }
+    if (window.screen.width <= 800) {
       this.smartphonemenu = true;
     }
   

@@ -28,11 +28,14 @@ export class AppComponent implements OnInit {
     if (window.screen.width <= 600) { 
       this.smartphonemenu = true;
     }
+    if (window.screen.width <= 800) { 
+      this.smartphonemenu = true;
+    }
 
     this.auth.authState.subscribe( user => {
       if(user) {
         this.user = user;
-        this.router.navigateByUrl('/projects/' + user.uid);
+        // this.router.navigateByUrl('/projects/' + user.uid);
       } else {
         this.router.navigateByUrl('/');
       } 
