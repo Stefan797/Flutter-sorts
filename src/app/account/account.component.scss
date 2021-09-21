@@ -1,5 +1,5 @@
 .account-container {
-    height: 100vh;
+    height: 80vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -29,7 +29,7 @@
     height: 500px;
     border-radius: 4px;
     border: 1px solid black;
-    .abc {
+    .setting-box {
         margin-left: 15px;
         width: 520px;
         height: 100px;
@@ -38,6 +38,7 @@
         justify-content: center;
         align-items: center;
         flex-direction: column;
+        margin-bottom: 8px;
     }
     button {
         width: 100px;
@@ -56,37 +57,12 @@
 
 .emojie-place {
     width: 550px;
-    height: 300px;
+    height: 340px;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.face{
-    width:150px;
-    height:150px;
-    border: 9px solid #0a5c92;
-    border-radius:50%;
-    position:relative;
-    z-index:9999;
-}
-  
-  
-.mouth{
-    height:10px;
-    width:35px;
-    margin: 0 auto;
-    margin-top: 15px;
-    background-color:#bdc3c7;
-}
-
-.tear{
-    position:absolute;
-    background-color: #3498db;
-    height:0px;
-    width:45px;
-    top:62px;
-}
 
 @media (max-width: 600px) {
     .account-container {
@@ -103,14 +79,14 @@
         margin-right: 0px;
         width: 300px;
         height: 600px;
-        .abc {
+        .setting-box {
             margin-left: 10px;
             width: 280px;
             height: 80px;
         }
         button {
-            width: 100px;
-            height: 40px;
+            width: 95px;
+            height: 32px;
             background-color: darkslategrey;
             color: white;
             cursor: pointer;

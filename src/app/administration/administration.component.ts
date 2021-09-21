@@ -58,6 +58,7 @@ export class AdministrationComponent implements OnInit {
   prioritycode: any;
   displayedColumns: string[] = ['Created', 'State', 'number', 'text'];
   myControl = new FormControl();
+  currentprojectID: string;
   
   // date = new Date();
   input = document.getElementById("myInput");
@@ -71,20 +72,27 @@ export class AdministrationComponent implements OnInit {
       this.projects.filter( projects => projects['name'].toLowerCase().includes(this.search) );
     });
 
-
+    this.userId = this.route.snapshot.paramMap.get('id');
+    // console.log(this.userId);
 
     this
-    .firestore.
-    collection('projects')
+    .firestore
+    .collection('projects', ref => ref. where("author", "==", this.userId ))
     .valueChanges({idField: 'customIdName'})
     .subscribe( collection => {
       this.projects = collection;
       // console.log(this.projects);
     } );
-    this.userId = this.route.snapshot.paramMap.get('id');
-    // console.log(this.userId);
+    
 
-    this.setTasksFromProjectId('VOeNDTUFlCT6vVwjXdgp'); // läd project ID
+    this.setTasksFromProjectId(this.currentprojectID); // läd project ID // currentprojectID einfügen // VOeNDTUFlCT6vVwjXdgp
+  }
+
+  selectProject(project: string) {
+    //  project == projects[''];
+    console.log(project);
+    project['customIdName'] = this.currentprojectID;
+    
   }
 
   setTasksFromProjectId(projectId){

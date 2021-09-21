@@ -38,4 +38,8 @@ export class AccountComponent implements OnInit {
     // this.router.navigateByUrl('/');
   }
 
+  showreleaseInfo() {
+    alert("this function is only possible after the next update");
+  }
+
 }

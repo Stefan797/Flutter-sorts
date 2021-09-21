@@ -11,7 +11,7 @@
         <div cdkDropList #ideasList="cdkDropList" [cdkDropListData]="ideas" [cdkDropListConnectedTo]="[todoList, doneList, reviewList]"
          class="example-list" (cdkDropListDropped)="drop($event, 'ideas')">
             <mat-card [ngStyle]="checktaskcolor(item['color'])" (click)="opentask(item)" [class.example-box]="isDragged" *ngFor="let item of ideas" cdkDrag>
-                <!--   -->
+                <!-- moved="addkopieclass()" ended="removekopieclass()"   -->
                 {{[item['text']]}}
             </mat-card>
         </div>
