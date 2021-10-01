@@ -10,46 +10,6 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./administration.component.scss']
 })
 export class AdministrationComponent implements OnInit {
-  @ViewChild('myChart') myDiv: ElementRef;
-
-  // myChart = new Chart(ctx, {
-  //   type: 'bar',
-  //   data: {
-  //       labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-  //       datasets: [{
-  //           label: '# of Votes',
-  //           data: [12, 19, 3, 5, 2, 3],
-  //           backgroundColor: [
-  //               'rgba(255, 99, 132, 0.2)',
-  //               'rgba(54, 162, 235, 0.2)',
-  //               'rgba(255, 206, 86, 0.2)',
-  //               'rgba(75, 192, 192, 0.2)',
-  //               'rgba(153, 102, 255, 0.2)',
-  //               'rgba(255, 159, 64, 0.2)'
-  //           ],
-  //           borderColor: [
-  //               'rgba(255, 99, 132, 1)',
-  //               'rgba(54, 162, 235, 1)',
-  //               'rgba(255, 206, 86, 1)',
-  //               'rgba(75, 192, 192, 1)',
-  //               'rgba(153, 102, 255, 1)',
-  //               'rgba(255, 159, 64, 1)'
-  //           ],
-  //           borderWidth: 1
-  //       }]
-  //   },
-  //   options: {
-  //       scales: {
-  //           y: {
-  //               beginAtZero: true
-  //           }
-  //       }
-  //   }
-  // });
-
-
-
-
 
   projects: any;
   userId: any;
@@ -59,40 +19,19 @@ export class AdministrationComponent implements OnInit {
   displayedColumns: string[] = ['Created', 'State', 'number', 'text'];
   myControl = new FormControl();
   currentprojectID: string;
-  
-  // date = new Date();
   input = document.getElementById("myInput");
-
+ 
   constructor(private router: Router, private route: ActivatedRoute, public firestore: AngularFirestore) { }
 
   ngOnInit(): void {
-    
-    this.myControl.valueChanges.subscribe( (result) => {
-      console.log(result);   
-      this.projects.filter( projects => projects['name'].toLowerCase().includes(this.search) );
-    });
-
     this.userId = this.route.snapshot.paramMap.get('id');
-    // console.log(this.userId);
-
     this
     .firestore
     .collection('projects', ref => ref. where("author", "==", this.userId ))
     .valueChanges({idField: 'customIdName'})
     .subscribe( collection => {
       this.projects = collection;
-      // console.log(this.projects);
     } );
-    
-
-    this.setTasksFromProjectId(this.currentprojectID); // läd project ID // currentprojectID einfügen // VOeNDTUFlCT6vVwjXdgp
-  }
-
-  selectProject(project: string) {
-    //  project == projects[''];
-    console.log(project);
-    project['customIdName'] = this.currentprojectID;
-    
   }
 
   setTasksFromProjectId(projectId){
@@ -101,12 +40,10 @@ export class AdministrationComponent implements OnInit {
     .collection('task', ref => ref.where('projectID', '==', projectId))
     .valueChanges({idField: 'customIdName'})
     .subscribe( collection => {
-      this.tasks = collection; //.filter(e => e['category'] === 'archiv'); !!! Wichtig 
+      this.tasks = collection.filter(e => e['category'] === 'archiv'); // !!! Wichtig 
       this.tasks.forEach((task, i) => {
         task['number'] = i;
       });
-      // console.log(this.tasks);
-      // this.date = this.tasks['creationdate'];
     } );
   }
   
@@ -126,8 +63,6 @@ export class AdministrationComponent implements OnInit {
       return 'x';
   }
 }
-
-
 
 /// -------------------------------------------------------------------------------
 

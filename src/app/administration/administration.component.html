@@ -6,7 +6,7 @@
           <mat-label>search your Project</mat-label>
           <input id="myInput" matInput type="text" [matAutocomplete]="search"> 
           <mat-autocomplete #search="matAutocomplete">
-            <mat-option (click)="selectProject(project)" *ngFor="let project of projects" [value]="project['name']">
+            <mat-option (click)="setTasksFromProjectId(project['customIdName'])" *ngFor="let project of projects" [value]="project['name']">
               {{ project['name'] }}
               <!-- <mat-form-field></mat-form-field> -->
             </mat-option>
