@@ -45,7 +45,7 @@ export class BoardComponent implements OnInit {
     if (window.screen.width <= 800) {
       this.smartphonemenu = true;
     }
-  
+
     this.projectID = this.route.snapshot.paramMap.get('id');
     this
     .firestore
@@ -61,6 +61,12 @@ export class BoardComponent implements OnInit {
     });
 
     localStorage.setItem('activeBoard', this.projectID);
+
+    this.checkcompletedtasks();
+  }
+
+  checkcompletedtasks() {
+
   }
 
   opentask(task) {
