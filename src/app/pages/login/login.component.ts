@@ -15,6 +15,12 @@ export class LoginComponent implements OnInit {
   constructor(private router: Router, public auth: AngularFireAuth, private _snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
+    this.auth.authState.subscribe( user => {
+      if(user) {
+       
+        this.router.navigateByUrl('/projects/' + user.uid);
+      }
+    });
   }
 
   login() {

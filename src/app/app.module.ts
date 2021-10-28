@@ -29,6 +29,7 @@ import { EditTicketComponent } from './edit-ticket/edit-ticket.component';
 import {MatTableModule} from '@angular/material/table';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {  ReactiveFormsModule } from '@angular/forms';
+import { ArchivChartComponent } from './archiv-chart/archiv-chart.component';
 
 
 
@@ -43,7 +44,8 @@ import {  ReactiveFormsModule } from '@angular/forms';
     AdministrationComponent,
     CreateTicketComponent,
     AccountComponent,
-    EditTicketComponent
+    EditTicketComponent,
+    ArchivChartComponent
   ],
   imports: [
     ReactiveFormsModule,

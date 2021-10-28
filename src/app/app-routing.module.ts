@@ -6,6 +6,7 @@ import { LoginComponent } from './pages/login/login.component';
 import { ProjectsComponent } from './projects/projects.component';
 import { RegistrationComponent } from './pages/registration/registration.component';
 import { AccountComponent } from './account/account.component';
+import { ArchivChartComponent } from './archiv-chart/archiv-chart.component';
 
 const routes: Routes = [
   {path: '', component: LoginComponent},
