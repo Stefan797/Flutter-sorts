@@ -30,6 +30,8 @@ import {MatTableModule} from '@angular/material/table';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {  ReactiveFormsModule } from '@angular/forms';
 import { ArchivChartComponent } from './archiv-chart/archiv-chart.component';
+import { DocumentationPagesComponent } from './documentation-pages/documentation-pages.component';
+import { DocumentationPageComponent } from './documentation-page/documentation-page.component';
 
 
 
@@ -45,7 +47,9 @@ import { ArchivChartComponent } from './archiv-chart/archiv-chart.component';
     CreateTicketComponent,
     AccountComponent,
     EditTicketComponent,
-    ArchivChartComponent
+    ArchivChartComponent,
+    DocumentationPagesComponent,
+    DocumentationPageComponent
   ],
   imports: [
     ReactiveFormsModule,

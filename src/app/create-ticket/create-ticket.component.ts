@@ -56,7 +56,11 @@ export class CreateTicketComponent implements OnInit {
   }
 
   ngOnInit(): void {
-   this.init();
+
+    if (window.screen.width <= 800) {
+      this.smartphonemenu = true;
+    }
+    this.init();
   }
     
   // closedialog() {

@@ -1,0 +1,31 @@
+<div class="mt24">
+    <div class="example-boundary ">
+        <div class="example-box" cdkDragBoundary=".example-boundary" cdkDrag>
+          I can only be dragged within the dotted container
+        </div>
+        <div class="example-box" cdkDragBoundary=".example-boundary" cdkDrag>
+            I can only be dragged within the dotted container
+        </div>
+    </div>
+
+    <div class="dropImage-container">
+        <button (onclick)="AddnewImagefromComputer()">AddImage</button>
+
+        <button (onclick)="AddImagessize()">110x220px</button>
+        <button (onclick)="AddImagessize()">110x220px</button>
+        <button (onclick)="AddImagessize()">110x220px</button>
+        <button (onclick)="AddImagessize()">110x220px</button>
+        <button (onclick)="AddImagessize()">110x220px</button>
+        <button (onclick)="AddImagessize()">110x220px</button>
+        
+
+    </div>
+    <div class="dropText-container">
+        <button (onclick)="AddText()">AddText</button>
+        <textarea type="text"></textarea>
+
+    </div>
+    <!-- <div class="dropotherElements-container">
+
+    </div> -->
+</div>
